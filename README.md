@@ -1,6 +1,7 @@
 <p align="center">
   <img src="https://github.com/VonRiddarn/isca-monster-database/blob/main/public/resources/isca_labs.png?raw=true" alt="ISCA Logo" /> <br />
-  <i>International securement and containment association</i>
+  <i>International securement and containment association</i><br />
+  <a href="https://vonriddarn.github.io/isca-monster-database/public/">CLICK HERE TO SEE THE LIVE PAGE</a>
 </p>
 
 # Development team
@@ -18,7 +19,7 @@
   <img src="https://github.com/VonRiddarn/isca-monster-database/blob/main/resources/readme_nametags/readme_nametag_mattias.png?raw=true" alt="Mattias" width="134,4" height="32">
 </a>
 <br />
-<a href="">
+<a href="https://www.linkedin.com/in/timmyohman/">
   <img src="https://github.com/VonRiddarn/isca-monster-database/blob/main/resources/readme_nametags/readme_nametag_timmy.png?raw=true" alt="Timmy" width="134,4" height="32">
 </a>
 <br />
