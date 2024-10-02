@@ -21,6 +21,8 @@ const MonsterAttribute = Object.freeze
 	}
 );
 
+console.log("MonsterColor and MonsterAttribute has been loaded!");
+
 // How to use dynamically
 // 1: attribute = Horns
 // 2: attribute = Eyes
@@ -30,6 +32,6 @@ for (const attribute in MonsterAttribute)
 	// 1: MonsterAttribute[Horns]
 	// 2: MonsterAttribute[Eyes]
 	console.log(MonsterAttribute[attribute]);
-	
-	document.querySelector("body").innerHTML += MonsterAttribute[attribute] + " | ";
+
+	// document.querySelector("body").innerHTML += MonsterAttribute[attribute] + " | ";
 }
