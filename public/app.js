@@ -2,10 +2,10 @@
 const MonsterColor = Object.freeze
 (
 	{
-		Blue: "blue",
-		Green: "green",	
-		Red: "red",
-		Purple: "purple",
+		Blue: "Blue",
+		Green: "Green",	
+		Red: "Red",
+		Purple: "Purple",
 	}
 );
 
@@ -13,10 +13,23 @@ const MonsterColor = Object.freeze
 const MonsterAttribute = Object.freeze
 (
 	{
-		Horns: "horns",
-		Eyes: "eyes",
-		Wings: "wings",
-		Tentacles: "tentacles",
-		Tails: "tails",
+		Horns: "Horns",
+		Eyes: "Eyes",
+		Wings: "Wings",
+		Tentacles: "Tentacles",
+		Tails: "Tails",
 	}
 );
+
+// How to use dynamically
+// 1: attribute = Horns
+// 2: attribute = Eyes
+// 3: attribute = Wings
+for (const attribute in MonsterAttribute) 
+{
+	// 1: MonsterAttribute[Horns]
+	// 2: MonsterAttribute[Eyes]
+	console.log(MonsterAttribute[attribute]);
+	
+	document.querySelector("body").innerHTML += MonsterAttribute[attribute] + " | ";
+}
