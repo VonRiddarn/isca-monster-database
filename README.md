@@ -1,5 +1,6 @@
 <p align="center">
-  <img src="https://github.com/VonRiddarn/isca-monster-database/blob/main/public/resources/isca_labs.png?raw=true" alt="ISCA Logo" />
+  <img src="https://github.com/VonRiddarn/isca-monster-database/blob/main/public/resources/isca_labs.png?raw=true" alt="ISCA Logo" /> <br />
+  <i>International securement and containment association</i>
 </p>
 
 # Development team
