@@ -1,3 +1,9 @@
+// enums.js
+//
+// This file will contain all thje enums in the project.
+// Collected into one place for easy access and readability.
+
+
 // Color enum
 const MonsterColor = Object.freeze
 (
@@ -8,6 +14,7 @@ const MonsterColor = Object.freeze
 		Purple: "Purple",
 	}
 );
+
 
 // Attributes enum
 const MonsterAttribute = Object.freeze
