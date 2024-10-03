@@ -8,6 +8,7 @@
 const MonsterColor = Object.freeze
 (
 	{
+		Any: "Any", // MAKE SURE TO NOT RENDER ON USER INTERFACE ONLY FOR FILTERS!
 		Red: "Red",
 		Green: "Green",
 		Blue: "Blue",
