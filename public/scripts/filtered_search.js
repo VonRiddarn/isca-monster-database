@@ -26,6 +26,11 @@ console.warn(`DEBUG CODE IS STILL IN USE: ${filteredSearchRoot.className} form s
 applyMonsterColorToForm(filteredSearchForm);
 applyMonsterAttributesToForm(filteredSearchForm);
 
+// Create search <button> (filtered seach form submitter)
+const filteredSearchButton = filteredSearchForm.appendChild(document.createElement("button"));
+filteredSearchButton.setAttribute("id", "filtered-search-monster-form-submit");
+filteredSearchButton.innerHTML = "Search";
+
 
 /**
  * Generates and applies MonsterColor HTML elements the passed form.
