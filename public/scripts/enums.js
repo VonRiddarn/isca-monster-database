@@ -8,9 +8,9 @@
 const MonsterColor = Object.freeze
 (
 	{
-		Blue: "Blue",
-		Green: "Green",	
 		Red: "Red",
+		Green: "Green",
+		Blue: "Blue",
 		Purple: "Purple",
 	}
 );
