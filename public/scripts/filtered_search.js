@@ -3,6 +3,16 @@
 // This file contains all variables and functionality related to the filtered search.
 // This script should remain self-contained!
 
+// Filtered search enum
+const NumerixFilterMethod = Object.freeze
+(
+	{
+		LessThan: "<",
+		EqualTo: "=", 
+		GreaterThan: ">", 
+	}
+);
+
 // Initialize root
 const filteredSearchRoot = document.querySelector(".filter-search-monster");
 filteredSearchRoot.innerHTML = "";
@@ -38,6 +48,8 @@ function applyMonsterColorSpanToForm(form)
 		opt.innerHTML = `${MonsterColor[color]}`;
 	}
 }
+
+
 
 /*<form>
 	<span>
