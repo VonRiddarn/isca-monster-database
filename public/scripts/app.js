@@ -44,7 +44,7 @@ const monsters =
 			},
 			{
 				attribute: MonsterAttribute.Legs,
-				amount: 0,
+				amount: 2,
 			},
 		],
 	},
@@ -71,7 +71,7 @@ const monsters =
 			},
 			{
 				attribute: MonsterAttribute.Legs,
-				amount: 0,
+				amount: 2,
 			},
 		],
 	},
@@ -98,7 +98,7 @@ const monsters =
 			},
 			{
 				attribute: MonsterAttribute.Legs,
-				amount: 0,
+				amount: 6,
 			},
 		],
 	},
@@ -125,7 +125,7 @@ const monsters =
 			},
 			{
 				attribute: MonsterAttribute.Legs,
-				amount: 0,
+				amount: 8,
 			},
 		],
 	},
