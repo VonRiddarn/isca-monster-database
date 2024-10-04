@@ -3,16 +3,6 @@
 // This file contains all variables and functionality related to the filtered search.
 // This script should remain self-contained!
 
-// Filtered search enum
-const NumerixFilterMethod = Object.freeze
-(
-	{
-		LessThan: "<",
-		EqualTo: "=", 
-		GreaterThan: ">", 
-	}
-);
-
 // Create <form> then create <span> and save the <span> to a variable so we can mutate it in a function later.
 const filteredSearchRoot = document.querySelector(".filter-search-monster");
 const filteredSearchForm = filteredSearchRoot.querySelector("form");
