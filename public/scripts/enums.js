@@ -30,13 +30,13 @@ const MonsterAttribute = Object.freeze
 
 // Filtered search enum
 const NumerixFilterMethod = Object.freeze
-	(
-		{
-			LessThan: "<",
-			EqualTo: "=",
-			GreaterThan: ">",
-		}
-	);
+(
+	{
+		LessThan: "<",
+		EqualTo: "=",
+		GreaterThan: ">",
+	}
+);
 
 // How to use dynamically
 // 1: attribute = Horns
