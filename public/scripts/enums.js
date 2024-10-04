@@ -22,7 +22,7 @@ const MonsterAttribute = Object.freeze
 	{
 		Horns: "Horns",
 		Eyes: "Eyes",
-		Wings: "Wings",
+		Legs: "Legs",
 		Tentacles: "Tentacles",
 		Tails: "Tails",
 	}

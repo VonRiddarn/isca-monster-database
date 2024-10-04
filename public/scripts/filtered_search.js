@@ -13,12 +13,10 @@ const NumerixFilterMethod = Object.freeze
 	}
 );
 
-// Initialize root
-const filteredSearchRoot = document.querySelector(".filter-search-monster");
-filteredSearchRoot.innerHTML = "";
-
 // Create <form> then create <span> and save the <span> to a variable so we can mutate it in a function later.
-const filteredSearchForm = filteredSearchRoot.appendChild(document.createElement("form"));
+const filteredSearchRoot = document.querySelector(".filter-search-monster");
+const filteredSearchForm = filteredSearchRoot.querySelector("form");
+filteredSearchForm.innerHTML = "";
 filteredSearchForm.setAttribute("style", "display: flex; flex-direction: column"); // DEBUG!!!! EXPERIMENTAL!!! REMOVE WHEN WE HAVE CSS!!!
 console.warn(`DEBUG CODE IS STILL IN USE: ${filteredSearchRoot.className} form style is set inside javascript!`);
 
