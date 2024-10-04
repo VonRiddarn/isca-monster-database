@@ -1,16 +1,18 @@
 const addMonsterRoot = document.querySelector(".add-monster");
-addMonsterRoot.innerHTML = "";
-//Creates <form>
-const monsterForm = addMonsterRoot.appendChild(document.createElement("form"));
-monsterForm.setAttribute("id", "monster-form");
-//Creates <div> for text input field.
-const monsterDiv = monsterForm.appendChild(document.createElement("div"));
+
+//inits <form>
+const monsterForm = document
+  .querySelector(".add-monster")
+  .querySelector("form");
+
+//Creates <span> for text input field.
+const monsterSpan = monsterForm.appendChild(document.createElement("span"));
 //Creates <label> for text input and a text field
-const monsterNameLabel = monsterDiv.appendChild(
+const monsterNameLabel = monsterSpan.appendChild(
   document.createElement("label")
 );
-
-const monsterTextInput = monsterDiv.appendChild(
+//name creates inputfield for the name of monster
+const monsterTextInput = monsterSpan.appendChild(
   document.createElement("input")
 );
 monsterTextInput.setAttribute("id", "monster-text-input");
@@ -26,10 +28,30 @@ addDropDownFromEnum(monsterForm, MonsterColor, "monster-color");
 
 monsterForm.appendChild(document.createElement("br")); // temporary linebreak
 
-//creates dropdown for monster attributes
-const monsterAttributeLabel = monsterForm.appendChild(
-  document.createElement("label")
+//kunna ta värdet från attributes. lägga till en input text för
+addNumericInputFieldsFromEnum(
+  monsterForm,
+  MonsterAttribute,
+  "add-monster-attributes",
+  false
 );
-monsterAttributeLabel.setAttribute("for", "monster-attribute");
-monsterAttributeLabel.innerHTML = "Attributes: ";
-addDropDownFromEnum(monsterForm, MonsterAttribute, "monster-attribute");
+//creates listen event for the form, gathers all data and submits it to monsterObject
+monsterForm.addEventListener(`submit`, (e) => {
+  e.preventDefault();
+  let monster = {
+    name: monsterTextInput.value,
+    color: monsterForm.querySelector("#monster-color").value,
+    attributes: {},
+  };
+
+  const attributeFields = monsterForm.querySelectorAll(
+    "[id^='add-monster-attributes-']"
+  );
+  attributeFields.forEach((input) => {
+    const attributeName = input
+      .getAttribute("id")
+      .replace("add-monster-attributes", "");
+    monster.attributes[attributeName] = Number(input.value);
+  });
+  console.log(monster);
+});
