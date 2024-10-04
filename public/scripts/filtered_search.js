@@ -24,7 +24,7 @@ console.warn(`DEBUG CODE IS STILL IN USE: ${filteredSearchRoot.className} form s
 
 // Add form elements to span through functions
 applyMonsterColorToForm(filteredSearchForm);
-applyMonsterAttributesToForm(filteredSearchForm);
+addNumericInputFieldsFromEnum(filteredSearchForm, MonsterAttribute, "filtered-search-monster-attribute");
 
 // Create search <button> (filtered seach form submitter)
 const filteredSearchButton = filteredSearchForm.appendChild(document.createElement("button"));
@@ -54,42 +54,6 @@ function applyMonsterColorToForm(form)
 
 	// <select>
 	addDropDownFromEnum(span, MonsterColor, "filtered-search-monster-color-dropdown");
-}
-
-/**
- * Generates and applies MonsterAttribute HTML elements the passed form.
- * @param {Form} form 
- */
-function applyMonsterAttributesToForm(form)
-{
-	for (const attribute in MonsterAttribute) 
-	{
-		const idRoot = `filtered-search-monster-attribute-${MonsterAttribute[attribute]}`;
-
-		// <span> GENERIC
-		const span = form.appendChild(document.createElement("span"));
-		span.setAttribute("class", "filtered-search-monster-attribute-span");
-		span.setAttribute("display", "flex"); // EXPERIMENTAL AF, DEBUG!!!!! REMOVE WHEN WE ARE WORKING ON CSS!!!!!
-		console.warn(`DEBUG CODE IS STILL IN USE: ${idRoot} span style is set inside javascript!`);
-
-		// <input type="checkbox" />
-		const checkbox = span.appendChild(document.createElement("input"));
-		checkbox.setAttribute("type", "checkbox");
-		checkbox.setAttribute("id", `${idRoot}-isactive`);
-
-		// <label>
-		const label = span.appendChild(document.createElement("label"));
-		label.setAttribute("for", `${idRoot}-isactive`)
-		label.innerHTML = `${MonsterAttribute[attribute]}`;
-
-		// <select>
-		addDropDownFromEnum(span, NumerixFilterMethod, `${idRoot}-numeric-filter-dropdown`);
-
-		// <input type="number" />
-		const count = span.appendChild(document.createElement("input"));
-		count.setAttribute("type", "number");
-		count.setAttribute("id", `${idRoot}-count`);
-	}
 }
 
 /*
