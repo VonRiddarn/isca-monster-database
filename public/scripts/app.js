@@ -67,3 +67,6 @@ const monsters =
 		Legs: 8,
 	},
 ];
+
+console.log(monsters);
+console.log(getFilteredMonsterArray(monsters));
