@@ -29,7 +29,7 @@ const MonsterAttribute = Object.freeze
 );
 
 // Filtered search enum
-const NumerixFilterMethod = Object.freeze
+const NumericFilterMethod = Object.freeze
 (
 	{
 		LessThan: "<",
