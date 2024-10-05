@@ -58,7 +58,7 @@ function addNumericInputFieldsFromEnum(parentElement, enumToItterate, idRoot, is
 
 		// <select>
 		if(isFilter)
-			addDropDownFromEnum(span, NumerixFilterMethod, `${elementId}-numeric-filter-dropdown`);
+			addDropDownFromEnum(span, NumericFilterMethod, `${elementId}-numeric-filter-dropdown`);
 
 		// <input type="number" />
 		const count = span.appendChild(document.createElement("input"));
