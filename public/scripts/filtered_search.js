@@ -44,6 +44,80 @@ function applyMonsterColorToForm(form)
 	addDropDownFromEnum(span, MonsterColor, "filtered-search-monster-color-dropdown");
 }
 
+
+// TODO: 
+// Change this to dynamically create the filterCriteria object from filter form
+function getFilterCriteria()
+{
+	const fc = 
+	{
+		color: "Purple",
+		attributes: 
+		{
+			Horns: { filterMethod: NumericFilterMethod.LessThan, amount: 1 },
+			Eyes: { filterMethod: NumericFilterMethod.LessThan, amount: 20 },
+		},
+	};
+
+	return fc;
+}
+
+/**
+ * 
+ * @param {Array} monstersArr The array containing all monster objects in javascript form
+ * @returns monsterArr modified to only include monsters matching the current active filters on the form.
+ */
+function getFilteredMonsterArray(monstersArr)
+{
+	const filterCriteria = getFilterCriteria();
+
+	return monstersArr.filter(monster => 
+	{
+		// If color filter exists, and we do NOT match.
+		if (filterCriteria.color && monster.color !== filterCriteria.color)
+			return false;
+
+		// If attribute filter exists, go nest and do more checks
+		if(filterCriteria.attributes)
+		{
+			for(let [attributeKey, filterCondition] of Object.entries(filterCriteria.attributes))
+			{
+				// Skip if attribute does not exist on monster.
+				if(monster[attributeKey] === undefined)
+					continue;
+
+				const value = monster[attributeKey]; // Current monster attribute count saved in value
+				const { filterMethod, amount } = filterCondition;
+
+				switch(filterMethod)
+				{
+					case NumericFilterMethod.LessThan:
+						if(value >= amount)
+							return false;
+						break;
+
+					case NumericFilterMethod.EqualTo:
+						if(value != amount)
+							return false;
+						break;
+
+					case NumericFilterMethod.GreaterThan:
+						if(value <= amount)
+							return false;
+						break;
+
+					default:
+						console.error(`Invalid numeric filter method ${filterMethod} on ${monster}`);
+						return false;
+				}
+			}
+		}
+
+		// Passed all active filters
+		return true;
+	});
+}
+
 /*
 <form>
 	<!-- COLOR -->
