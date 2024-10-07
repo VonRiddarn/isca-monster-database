@@ -1,0 +1,56 @@
+:root
+{
+	--isca-blue: #00a8ff;
+	--isca-background-light: #c6d5ff;
+	--isca-background-dark: #36475b;
+	--isca-accent: #ffcc00;
+	
+	--header-size: 150px;
+	--footer-size: 150px;
+}
+
+body
+{
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	grid-template-rows: var(--header-size) auto auto var(--footer-size);
+	grid-template-areas:
+	"header header"
+	"aside main"
+	"aside main"
+	"footer footer";
+	gap: 0;
+	
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+}
+
+header
+{
+	grid-area: header;
+	background-color: var(--isca-background-dark);
+	color: white;
+}
+
+aside
+{
+	grid-area: aside;
+	background-color: var(--isca-background-light);
+	
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+}
+
+main
+{
+	grid-area: main;
+	background-color: var(--isca-background-light);
+}
+
+footer
+{
+	grid-area: footer;
+	background-color: var(--isca-background-dark);
+	color: white;
+}
