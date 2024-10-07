@@ -16,19 +16,20 @@ const monsterTextInput = monsterSpan.appendChild(
   document.createElement("input")
 );
 monsterTextInput.setAttribute("id", "monster-text-input");
+
 monsterNameLabel.setAttribute("for", "monster-text-input");
 monsterNameLabel.innerHTML = "Name: ";
 //creates a label with a corresponding dropdown menu for color
-const monsterColorLabel = monsterForm.appendChild(
+const colorSpan = monsterForm.appendChild(document.createElement("span"));
+const monsterColorLabel = colorSpan.appendChild(
   document.createElement("label")
 );
 monsterColorLabel.setAttribute("for", "monster-color");
 monsterColorLabel.innerHTML = "Color";
-addDropDownFromEnum(monsterForm, MonsterColor, "monster-color");
-
-monsterForm.appendChild(document.createElement("br")); // temporary linebreak
+addDropDownFromEnum(colorSpan, MonsterColor, "monster-color");
 
 //kunna ta värdet från attributes. lägga till en input text för
+
 addNumericInputFieldsFromEnum(
   monsterForm,
   MonsterAttribute,
