@@ -51,13 +51,26 @@ function getFilterCriteria()
 {
 	const fc = 
 	{
-		color: "Purple",
-		attributes: 
-		{
-			Horns: { filterMethod: NumericFilterMethod.LessThan, amount: 1 },
-			Eyes: { filterMethod: NumericFilterMethod.LessThan, amount: 20 },
-		},
+		color: null,
+		attributes: {},
 	};
+	
+	if(document.getElementById("filtered-search-monster-color-isactive").checked)
+		fc.color = document.getElementById("filtered-search-monster-color-dropdown").value
+	
+	for (const attribute in MonsterAttribute) 
+	{
+		let elementId = `filtered-search-monster-attribute-${attribute}`;
+		// If checkbox for attribute is not active: skip
+		if(!document.getElementById(`${elementId}-isactive`).checked)
+			continue;
+		
+		fc.attributes[attribute] = 
+		{
+			filterMethod : document.getElementById(`${elementId}-numeric-filter-dropdown`).value,
+			amount : document.getElementById(`${elementId}-count`).value,
+		};
+	}
 
 	return fc;
 }
@@ -70,22 +83,22 @@ function getFilterCriteria()
 function getFilteredMonsterArray(monstersArr)
 {
 	const filterCriteria = getFilterCriteria();
-
+	
 	return monstersArr.filter(monster => 
 	{
 		// If color filter exists, and we do NOT match.
-		if (filterCriteria.color && monster.color !== filterCriteria.color)
+		if (filterCriteria.color != null && monster.color !== filterCriteria.color)
 			return false;
 
 		// If attribute filter exists, go nest and do more checks
-		if(filterCriteria.attributes)
+		if(Object.keys(filterCriteria.attributes).length > 0)
 		{
 			for(let [attributeKey, filterCondition] of Object.entries(filterCriteria.attributes))
 			{
 				// Skip if attribute does not exist on monster.
 				if(monster[attributeKey] === undefined)
 					continue;
-
+				
 				const value = monster[attributeKey]; // Current monster attribute count saved in value
 				const { filterMethod, amount } = filterCondition;
 
@@ -117,6 +130,13 @@ function getFilteredMonsterArray(monstersArr)
 		return true;
 	});
 }
+
+// Filter button (submit)
+document.getElementById("filtered-search-monster-form-submit").addEventListener('click', (e) =>
+{
+	e.preventDefault();
+	console.log(getFilteredMonsterArray(monsters));
+});
 
 /*
 <form>
