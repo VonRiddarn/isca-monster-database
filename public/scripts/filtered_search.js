@@ -7,8 +7,6 @@
 const filteredSearchRoot = document.querySelector(".filter-search-monster");
 const filteredSearchForm = filteredSearchRoot.querySelector("form");
 filteredSearchForm.innerHTML = "";
-filteredSearchForm.setAttribute("style", "display: flex; flex-direction: column"); // DEBUG!!!! EXPERIMENTAL!!! REMOVE WHEN WE HAVE CSS!!!
-console.warn(`DEBUG CODE IS STILL IN USE: ${filteredSearchRoot.className} form style is set inside javascript!`);
 
 // Add form elements to span through functions
 applyMonsterColorToForm(filteredSearchForm);

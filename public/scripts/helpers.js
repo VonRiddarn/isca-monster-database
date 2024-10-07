@@ -40,8 +40,6 @@ function addNumericInputFieldsFromEnum(parentElement, enumToItterate, idRoot, is
 		// <span> GENERIC
 		const span = parentElement.appendChild(document.createElement("span"));
 		span.setAttribute("class", `${idRoot}-span`);
-		span.setAttribute("display", "flex"); // EXPERIMENTAL AF, DEBUG!!!!! REMOVE WHEN WE ARE WORKING ON CSS!!!!!
-		console.warn(`DEBUG CODE IS STILL IN USE: ${idRoot} span style is set inside javascript!`);
 		
 		const labelSpan = span.appendChild(document.createElement("span"));
 		
