@@ -7,8 +7,6 @@
 const filteredSearchRoot = document.querySelector(".filter-search-monster");
 const filteredSearchForm = filteredSearchRoot.querySelector("form");
 filteredSearchForm.innerHTML = "";
-filteredSearchForm.setAttribute("style", "display: flex; flex-direction: column"); // DEBUG!!!! EXPERIMENTAL!!! REMOVE WHEN WE HAVE CSS!!!
-console.warn(`DEBUG CODE IS STILL IN USE: ${filteredSearchRoot.className} form style is set inside javascript!`);
 
 // Add form elements to span through functions
 applyMonsterColorToForm(filteredSearchForm);
@@ -29,14 +27,17 @@ function applyMonsterColorToForm(form)
 	// <span>
 	const span = form.appendChild(document.createElement("span"));
 	span.setAttribute("id", "filtered-search-monster-color-span");
-
+	
+	// <span> label
+	const labelSpan = span.appendChild(document.createElement("span"));
+	
 	// <input type="checkbox">
-	const colorCheckBox = span.appendChild(document.createElement("input"));
+	const colorCheckBox = labelSpan.appendChild(document.createElement("input"));
 	colorCheckBox.setAttribute("type", "checkbox");
 	colorCheckBox.setAttribute("id", "filtered-search-monster-color-isactive");
 
 	// <label>
-	const label = span.appendChild(document.createElement("label"));
+	const label = labelSpan.appendChild(document.createElement("label"));
 	label.setAttribute("for", "filtered-search-monster-color-isactive");
 	label.innerHTML = "Color";
 
