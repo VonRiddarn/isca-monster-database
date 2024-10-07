@@ -35,7 +35,7 @@ function addNumericInputFieldsFromEnum(parentElement, enumToItterate, idRoot, is
 {
 	for (const el in enumToItterate) 
 	{
-		const elementId = `${idRoot}-${enumToItterate[el]}`;
+		const elementId = `${idRoot}-${el}`;
 
 		// <span> GENERIC
 		const span = parentElement.appendChild(document.createElement("span"));
