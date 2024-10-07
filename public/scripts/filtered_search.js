@@ -3,16 +3,6 @@
 // This file contains all variables and functionality related to the filtered search.
 // This script should remain self-contained!
 
-// Filtered search enum
-const NumerixFilterMethod = Object.freeze
-(
-	{
-		LessThan: "<",
-		EqualTo: "=", 
-		GreaterThan: ">", 
-	}
-);
-
 // Create <form> then create <span> and save the <span> to a variable so we can mutate it in a function later.
 const filteredSearchRoot = document.querySelector(".filter-search-monster");
 const filteredSearchForm = filteredSearchRoot.querySelector("form");
@@ -53,6 +43,100 @@ function applyMonsterColorToForm(form)
 	// <select>
 	addDropDownFromEnum(span, MonsterColor, "filtered-search-monster-color-dropdown");
 }
+
+
+// TODO: 
+// Change this to dynamically create the filterCriteria object from filter form
+function getFilterCriteria()
+{
+	const fc = 
+	{
+		color: null,
+		attributes: {},
+	};
+	
+	if(document.getElementById("filtered-search-monster-color-isactive").checked)
+		fc.color = document.getElementById("filtered-search-monster-color-dropdown").value
+	
+	for (const attribute in MonsterAttribute) 
+	{
+		let elementId = `filtered-search-monster-attribute-${attribute}`;
+		// If checkbox for attribute is not active: skip
+		if(!document.getElementById(`${elementId}-isactive`).checked)
+			continue;
+		
+		fc.attributes[attribute] = 
+		{
+			filterMethod : document.getElementById(`${elementId}-numeric-filter-dropdown`).value,
+			amount : document.getElementById(`${elementId}-count`).value,
+		};
+	}
+
+	return fc;
+}
+
+/**
+ * 
+ * @param {Array} monstersArr The array containing all monster objects in javascript form
+ * @returns monsterArr modified to only include monsters matching the current active filters on the form.
+ */
+function getFilteredMonsterArray(monstersArr)
+{
+	const filterCriteria = getFilterCriteria();
+	
+	return monstersArr.filter(monster => 
+	{
+		// If color filter exists, and we do NOT match.
+		if (filterCriteria.color != null && monster.color !== filterCriteria.color)
+			return false;
+
+		// If attribute filter exists, go nest and do more checks
+		if(Object.keys(filterCriteria.attributes).length > 0)
+		{
+			for(let [attributeKey, filterCondition] of Object.entries(filterCriteria.attributes))
+			{
+				// Skip if attribute does not exist on monster.
+				if(monster[attributeKey] === undefined)
+					continue;
+				
+				const value = monster[attributeKey]; // Current monster attribute count saved in value
+				const { filterMethod, amount } = filterCondition;
+
+				switch(filterMethod)
+				{
+					case NumericFilterMethod.LessThan:
+						if(value >= amount)
+							return false;
+						break;
+
+					case NumericFilterMethod.EqualTo:
+						if(value != amount)
+							return false;
+						break;
+
+					case NumericFilterMethod.GreaterThan:
+						if(value <= amount)
+							return false;
+						break;
+
+					default:
+						console.error(`Invalid numeric filter method ${filterMethod} on ${monster}`);
+						return false;
+				}
+			}
+		}
+
+		// Passed all active filters
+		return true;
+	});
+}
+
+// Filter button (submit)
+document.getElementById("filtered-search-monster-form-submit").addEventListener('click', (e) =>
+{
+	e.preventDefault();
+	console.log(getFilteredMonsterArray(monsters));
+});
 
 /*
 <form>

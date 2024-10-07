@@ -19,7 +19,7 @@ function addDropDownFromEnum(parentElement, enumToItterate, id)
 	for (const e in enumToItterate) 
 	{
 		let opt = select.appendChild(document.createElement("option"));
-		opt.setAttribute("value", `${e}`);
+		opt.setAttribute("value", `${enumToItterate[e]}`);
 		opt.innerHTML = `${enumToItterate[e]}`;
 	}
 }
@@ -35,7 +35,7 @@ function addNumericInputFieldsFromEnum(parentElement, enumToItterate, idRoot, is
 {
 	for (const el in enumToItterate) 
 	{
-		const elementId = `${idRoot}-${enumToItterate[el]}`;
+		const elementId = `${idRoot}-${el}`;
 
 		// <span> GENERIC
 		const span = parentElement.appendChild(document.createElement("span"));
@@ -58,7 +58,7 @@ function addNumericInputFieldsFromEnum(parentElement, enumToItterate, idRoot, is
 
 		// <select>
 		if(isFilter)
-			addDropDownFromEnum(span, NumerixFilterMethod, `${elementId}-numeric-filter-dropdown`);
+			addDropDownFromEnum(span, NumericFilterMethod, `${elementId}-numeric-filter-dropdown`);
 
 		// <input type="number" />
 		const count = span.appendChild(document.createElement("input"));
