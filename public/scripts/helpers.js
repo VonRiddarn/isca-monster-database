@@ -40,25 +40,25 @@ function addNumericInputFieldsFromEnum(parentElement, enumToItterate, idRoot, is
 		// <span> GENERIC
 		const span = parentElement.appendChild(document.createElement("span"));
 		span.setAttribute("class", `${idRoot}-span`);
-		span.setAttribute("display", "flex"); // EXPERIMENTAL AF, DEBUG!!!!! REMOVE WHEN WE ARE WORKING ON CSS!!!!!
-		console.warn(`DEBUG CODE IS STILL IN USE: ${idRoot} span style is set inside javascript!`);
-
+		
+		const labelSpan = span.appendChild(document.createElement("span"));
+		
 		// <input type="checkbox" />
 		if(isFilter)
 		{
-			const checkbox = span.appendChild(document.createElement("input"));
+			const checkbox = labelSpan.appendChild(document.createElement("input"));
 			checkbox.setAttribute("type", "checkbox");
 			checkbox.setAttribute("id", `${elementId}-isactive`);
 		}
 
 		// <label>
-		const label = span.appendChild(document.createElement("label"));
+		const label = labelSpan.appendChild(document.createElement("label"));
 		label.setAttribute("for", `${elementId}-${isFilter ? "isactive" : "count"}`);
 		label.innerHTML = `${enumToItterate[el]}`;
 
 		// <select>
 		if(isFilter)
-			addDropDownFromEnum(span, NumericFilterMethod, `${elementId}-numeric-filter-dropdown`);
+			addDropDownFromEnum(labelSpan, NumericFilterMethod, `${elementId}-numeric-filter-dropdown`);
 
 		// <input type="number" />
 		const count = span.appendChild(document.createElement("input"));
