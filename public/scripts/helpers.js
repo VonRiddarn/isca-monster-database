@@ -19,7 +19,7 @@ function addDropDownFromEnum(parentElement, enumToItterate, id)
 	for (const e in enumToItterate) 
 	{
 		let opt = select.appendChild(document.createElement("option"));
-		opt.setAttribute("value", `${e}`);
+		opt.setAttribute("value", `${enumToItterate[e]}`);
 		opt.innerHTML = `${enumToItterate[e]}`;
 	}
 }
