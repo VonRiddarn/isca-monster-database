@@ -39,13 +39,13 @@ addNumericInputFieldsFromEnum(
 monsterForm.addEventListener(`submit`, (e) => {
   e.preventDefault();
   let monster = {
-    name: monsterTextInput.value,
+    alias: monsterTextInput.value,
     color: monsterForm.querySelector("#monster-color").value,
     attributes: {},
   };
 
   const attributeFields = monsterForm.querySelectorAll(
-    "[id^='add-monster-attributes-']"
+    "[id=add-monster-attributes]"
   );
   attributeFields.forEach((input) => {
     const attributeName = input
@@ -53,5 +53,7 @@ monsterForm.addEventListener(`submit`, (e) => {
       .replace("add-monster-attributes", "");
     monster.attributes[attributeName] = Number(input.value);
   });
+  console.log(monsters);
   console.log(monster);
+  monsters.push(monster);
 });
