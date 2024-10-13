@@ -1,0 +1,26 @@
+form {
+  display: grid;
+  grid-template-rows: 2rem auto;
+
+  justify-content: start;
+
+  #monster-submit {
+    order: 2;
+    margin-left: 8rem;
+  }
+}
+span {
+  display: grid;
+  grid-template-rows: 2rem auto;
+  grid-template-columns: 8rem auto;
+}
+
+span > span {
+  display: grid;
+  grid-template-columns: 2rem 4rem 1fr;
+  grid-template-rows: 2rem auto;
+}
+
+#filtered-search-monster-form-submit {
+  margin-left: 8rem;
+}
