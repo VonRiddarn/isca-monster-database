@@ -46,6 +46,54 @@ main
 {
 	grid-area: main;
 	background-color: var(--isca-background-light);
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.monster-card
+{
+    background-image: linear-gradient(to bottom right, rgb(82, 174, 254), rgb(161, 228, 255));
+    border: 4px;
+    border-style: solid;
+    border-color:#36475b;
+    box-shadow: 4px 4px 4px 4px #44576c;
+    margin: 15px 15px 15px 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.monster-image
+{
+    order: 0;
+    background-image: url(resources/profilepic.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    border: 4px;
+    border-style: solid;
+    border-color: #36475b;
+    align-self: center;
+    margin-top: 5px;
+}
+
+.monster-profile
+{
+    order: 1;
+    font-weight: bold;  
+    margin: 5px 5px 5px 5px; 
+}
+
+.monster-stats
+{
+    order: 2;
+    font-weight: lighter;
+    margin: 5px 5px 5px 5px;
+}
+
+ul
+{
+    list-style-image: url(resources/smallersun.png);
 }
 
 footer

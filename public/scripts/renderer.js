@@ -21,6 +21,11 @@ function renderMonsterCards(arrayToRender)
 	monsterProfile.innerHTML = (monster.alias);
 	monsterCard.appendChild(monsterProfile);
 
+	const monsterImage = document.createElement("section");
+	monsterImage.className = "monster-image";
+	monsterImage.innerHTML = ("");
+	monsterCard.appendChild(monsterImage);
+
 	// create ul containing monster stats
 	const stats = document.createElement("ul");
 	stats.className = "monster-stats";
