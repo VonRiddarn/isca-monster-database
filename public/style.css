@@ -43,7 +43,7 @@ aside {
 
   display: inline-block;
   height: calc(100vh - var(--header-size));
-  top: 0;
+  top: calc(42px);
 }
 
 main {
@@ -105,10 +105,15 @@ footer {
 }
 nav {
   position: sticky;
-  grid-area: header;
-  height: calc(100vh - var(--header-size));
+  grid-area: aside;
+  grid-row: 1;
+  /* height: calc(100vh - var(--header-size)); */
   top: 0;
   margin-top: 6.5rem;
+
+  z-index: 1;
+  height: 5vh;
+  columns: 2;
 
   /* grid-template-rows: 1fr;
   grid-template-columns: 1fr; */
