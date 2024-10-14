@@ -85,6 +85,7 @@ span > span {
     rgb(128, 135, 141),
     rgb(218, 233, 238)
   );
+  cursor: pointer;
 }
 .exit-form {
   margin-top: 5rem;
