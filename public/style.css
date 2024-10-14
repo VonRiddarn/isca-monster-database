@@ -13,7 +13,8 @@
 }
 
 body
-{
+{	
+	background-color: var(--isca-background-light);
 	display: grid;
 	grid-template-columns: auto 2fr;
 	grid-template-rows: var(--header-size) auto auto var(--footer-size);
@@ -40,11 +41,14 @@ aside
 {
 	grid-area: aside;
 	background-color: var(--isca-background-light);
-	
+ 	
 	display: grid;
 	grid-template-rows: 1fr 1fr;
-	width: fit-content;
+	position: sticky;
+	
 	display: inline-block;
+	height: calc(100vh - var(--header-size));
+	top: 0;
 	
 	
 }

@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   height: fit-content;
-  
+  grid-row: 1;
   display: inline-block;
   
 }
@@ -11,7 +11,7 @@
 form {
   display: grid;
   grid-template-rows: 2rem auto;
-
+  
   /* justify-content: start; */
   
   margin: 0;
@@ -42,6 +42,7 @@ span > span {
 }
 .filtered-search-monster{
   margin-top: 0;
+  grid-row: 2;
 }
 #filtered-search-monster-form-submit {
   margin-left: 8rem;
