@@ -1,26 +1,55 @@
+.add-monster{
+  margin: 0;
+  padding: 0;
+  height: fit-content;
+  
+  display: inline-block;
+  
+}
+
+
 form {
   display: grid;
   grid-template-rows: 2rem auto;
 
-  justify-content: start;
-
+  /* justify-content: start; */
+  
+  margin: 0;
   #monster-submit {
     order: 2;
     margin-left: 8rem;
+    border: 1px gray solid;
+    background-image: linear-gradient(to bottom right, rgb(43, 153, 248), rgb(87, 202, 247));
+    
+  }
+  #monster-submit:hover{
+    background-image: linear-gradient(to bottom right, rgb(82, 254, 177), rgb(161, 255, 225));
+    cursor: pointer;
   }
 }
 span {
   display: grid;
   grid-template-rows: 2rem auto;
   grid-template-columns: 8rem auto;
+  margin: 0;
 }
 
 span > span {
   display: grid;
   grid-template-columns: 2rem 4rem 1fr;
   grid-template-rows: 2rem auto;
+  margin: 0;
 }
-
+.filtered-search-monster{
+  margin-top: 0;
+}
 #filtered-search-monster-form-submit {
   margin-left: 8rem;
+  background-image: linear-gradient(to bottom right, rgb(43, 153, 248), rgb(87, 202, 247));
+  border: 1px gray solid;
+  
+}
+#filtered-search-monster-form-submit:hover{
+  cursor: pointer;
+  background-image: linear-gradient(to bottom right, rgb(82, 254, 177), rgb(161, 255, 225));
 }
