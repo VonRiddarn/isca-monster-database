@@ -14,4 +14,13 @@ function hideBtn() {
   console.log(isShown);
 }
 
-const button = document.querySelector(".temp");
+const button = document.querySelector(".hamburger");
+
+function myFunction() {
+  var x = document.querySelector("aside");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
