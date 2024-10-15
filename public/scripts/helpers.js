@@ -66,3 +66,27 @@ function addNumericInputFieldsFromEnum(parentElement, enumToItterate, idRoot, is
 		count.setAttribute("id", `${elementId}-count`);
 	}
 }
+
+function generateRawDropDownFromEnum(enumToItterate, id = null) 
+{
+	// <select>
+	const select = document.createElement("select");
+	if(id)
+		select.setAttribute("id", id);
+
+	// Add all enum elements
+	// <option value="e"> e </>
+	for (const e in enumToItterate) 
+	{
+		let opt = select.appendChild(document.createElement("option"));
+		opt.setAttribute("value", `${enumToItterate[e]}`);
+		opt.innerHTML = `${enumToItterate[e]}`;
+	}
+
+	return select;
+}
+
+function getObjectKeynameFromIndex(object, index)
+{ 
+	return Object.keys(object)[index] || null;
+}
