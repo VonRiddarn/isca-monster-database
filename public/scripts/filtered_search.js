@@ -136,6 +136,7 @@ function getFilteredMonsterArray(monstersArr)
 document.getElementById("filtered-search-monster-form-submit").addEventListener('click', (e) =>
 {
 	e.preventDefault();
+	renderMonsterCards(getFilteredMonsterArray(monsters));
 	console.log(getFilteredMonsterArray(monsters));
 });
 
