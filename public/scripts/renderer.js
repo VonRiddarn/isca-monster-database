@@ -6,7 +6,8 @@
 
 function renderMonsterCards(arrayToRender)
 {
-	// document.querySelector("main").innerHTML = "";
+	
+  document.querySelector("main").innerHTML = "";
   for (const monster of arrayToRender) {
 
 	// create article containing monster card
@@ -42,7 +43,7 @@ function renderMonsterCards(arrayToRender)
 	const saveButton = saveCancelSpan.appendChild(document.createElement("button"));
 	saveButton.addEventListener('click', (e) => {
 		e.preventDefault();
-		exitEditMode(monsterCard, true);
+		exitEditMode(monsterCard, true, monster);
 
 	});
 	saveButton.innerHTML = "Save";
@@ -50,7 +51,7 @@ function renderMonsterCards(arrayToRender)
 	const cancelButton = saveCancelSpan.appendChild(document.createElement("button"));
 	cancelButton.addEventListener('click', (e) => {
 		e.preventDefault();
-		exitEditMode(monsterCard, false);
+		exitEditMode(monsterCard, false, monster);
 		console.warn("EDIT BUTTON CURRENTLY DELETES MONSTER - ADD FUNCTION TO EDIT!!!");
 
 	});
@@ -60,11 +61,13 @@ function renderMonsterCards(arrayToRender)
 	// Denna koden lägger till knapparna för att redigera och ta bort monster
 	// Den "måste" ligga i 
 
-
-	// create section containing monster alias
 	const monsterProfile = document.createElement("section");
 	monsterProfile.className = "monster-profile";
 	monsterCard.appendChild(monsterProfile);
+
+	const monsterStats = document.createElement("section");
+	monsterStats.className = "monster-stats";
+	monsterCard.appendChild(monsterStats);
 
 	const monsterImage = document.createElement("section");
 	monsterImage.className = "monster-image";
@@ -83,7 +86,7 @@ function renderMonsterCards(arrayToRender)
 	// create ul containing monster stats
 	const stats = document.createElement("ul");
 	stats.className = "monster-stats";
-	monsterProfile.appendChild(stats);
+	monsterStats.appendChild(stats);
 
 	// create list item containing eyes
 	const eyes = document.createElement("li");
