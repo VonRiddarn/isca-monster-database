@@ -30,11 +30,31 @@ function renderMonsterCards(arrayToRender)
 	const editButton = deleteEditSpan.appendChild(document.createElement("button"));
 	editButton.addEventListener('click', (e) => {
 		e.preventDefault();
-		deleteCard(monsterCard, monster);
-		console.warn("EDIT BUTTON CURRENTLY DELETES MONSTER - ADD FUNCTION TO EDIT!!!");
+		enterEditMode(monsterCard);
 
 	});
 	editButton.innerHTML = "Edit";
+
+	// SAVE / CANCEL buttons
+	const saveCancelSpan = monsterCard.appendChild(document.createElement("span"));
+	saveCancelSpan.style = "display: none;";
+
+	const saveButton = saveCancelSpan.appendChild(document.createElement("button"));
+	saveButton.addEventListener('click', (e) => {
+		e.preventDefault();
+		exitEditMode(monsterCard, true);
+
+	});
+	saveButton.innerHTML = "Save";
+
+	const cancelButton = saveCancelSpan.appendChild(document.createElement("button"));
+	cancelButton.addEventListener('click', (e) => {
+		e.preventDefault();
+		exitEditMode(monsterCard, false);
+		console.warn("EDIT BUTTON CURRENTLY DELETES MONSTER - ADD FUNCTION TO EDIT!!!");
+
+	});
+	cancelButton.innerHTML = "Cancel";
 
 	// create section containing monster alias
 	const monsterProfile = document.createElement("section");
@@ -89,6 +109,28 @@ function renderMonsterCards(arrayToRender)
 	stats.appendChild(legs);
   }
 };
+
+function toggleButtonSpans(card, isEditing)
+{
+	// Can be hard to understnad but is actually easy
+	// Create 2 variables and set them to the first 2 elements of the return of "array.from"
+	// We are deconstructing it instantly
+	const [deleteEditSpan, saveCancelSpan] = Array.from(card.querySelectorAll("span"));
+
+	card.className = isEditing ? "monster-card isediting" : "monster-card";
+	deleteEditSpan.style = isEditing ? "display: none;" : "";
+	saveCancelSpan.style = isEditing ? "" : "display: none;";
+}
+
+function enterEditMode(card)
+{
+	toggleButtonSpans(card, true);
+}
+
+function exitEditMode(card, saveChanges)
+{
+	toggleButtonSpans(card, false);
+}
 
 function deleteCard(card, object)
 {
