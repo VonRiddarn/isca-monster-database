@@ -15,7 +15,7 @@ function renderMonsterCards(arrayToRender)
 	monsterCard.className = "monster-card";
 	main.appendChild(monsterCard);
 
-	
+	////////////// IGNORERA KODEN HÄRIFRÅN, TILL - ////////////////////////////
 	// DELETE / EDIT buttons
 	const deleteEditSpan = monsterCard.appendChild(document.createElement("span"));
 
@@ -55,6 +55,11 @@ function renderMonsterCards(arrayToRender)
 
 	});
 	cancelButton.innerHTML = "Cancel";
+	////////////////////////// HIT /////////////////////////////////
+	// Förklaring:
+	// Denna koden lägger till knapparna för att redigera och ta bort monster
+	// Den "måste" ligga i 
+
 
 	// create section containing monster alias
 	const monsterProfile = document.createElement("section");
