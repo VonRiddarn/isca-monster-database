@@ -16,13 +16,25 @@ function renderMonsterCards(arrayToRender)
 	main.appendChild(monsterCard);
 
 	
-	// buttons
-	const deleteButton = monsterCard.appendChild(document.createElement("button"));
+	// DELETE / EDIT buttons
+	const deleteEditSpan = monsterCard.appendChild(document.createElement("span"));
+
+	const deleteButton = deleteEditSpan.appendChild(document.createElement("button"));
 	deleteButton.addEventListener('click', (e) => {
 		e.preventDefault();
 		deleteCard(monsterCard, monster);
 
 	});
+	deleteButton.innerHTML = "Delete";
+
+	const editButton = deleteEditSpan.appendChild(document.createElement("button"));
+	editButton.addEventListener('click', (e) => {
+		e.preventDefault();
+		deleteCard(monsterCard, monster);
+		console.warn("EDIT BUTTON CURRENTLY DELETES MONSTER - ADD FUNCTION TO EDIT!!!");
+
+	});
+	editButton.innerHTML = "Edit";
 
 	// create section containing monster alias
 	const monsterProfile = document.createElement("section");
