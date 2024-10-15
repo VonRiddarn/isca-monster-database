@@ -40,35 +40,34 @@ function renderMonsterCards(arrayToRender)
 	// create list item containing eyes
 	const eyes = document.createElement("li");
 	eyes.className = "monster-eyes";
-	eyes.innerHTML = (`eyes: ${monster.Eyes}`);
+	eyes.innerHTML = (`eyes: ${monster.stats.Eyes}`);
 	stats.appendChild(eyes);
 
 	// create list item containing horns
 	const horns = document.createElement("li");
 	horns.className = "monster-horns";
-	horns.innerHTML = (`horns: ${monster.Horns}`);
+	horns.innerHTML = (`horns: ${monster.stats.Horns}`);
 	stats.appendChild(horns);
 
 	// create list item containing tails
 	const tails = document.createElement("li");
 	tails.className = "monster-tails";
-	tails.innerHTML = (`tails: ${monster.Tails}`);
+	tails.innerHTML = (`tails: ${monster.stats.Tails}`);
 	stats.appendChild(tails);
 
 	// create list item containing tentacles
 	const tentacles = document.createElement("li");
 	tentacles.className = "monster-tentacles";
-	tentacles.innerHTML = (`tentacles: ${monster.Tentacles}`);
+	tentacles.innerHTML = (`tentacles: ${monster.stats.Tentacles}`);
 	stats.appendChild(tentacles);
 
 	// create list item containing legs
 	const legs = document.createElement("li");
 	legs.className = "monster-legs";
-	legs.innerHTML = (`legs: ${monster.Legs}`);
+	legs.innerHTML = (`legs: ${monster.stats.Legs}`);
 	stats.appendChild(legs);
   }
 };
-
 
 renderMonsterCards(monsters);
 
