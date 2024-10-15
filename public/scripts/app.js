@@ -1,21 +1,21 @@
 // app.js
-// 
+//
 // This will always be the last script to run.
 // Here we will "activate" the page if needed.
 
 // Array where we store all monster objects
 
 // THIS LOOKS SCARY - BUT IT'S NOT!
-// 
+//
 // monsters is an array with monster objects I will call those objects "monsterObject" for clarity.
 // So the array looks like this:
 // monsters = [monsterObject, monsterObject, monsterObject]
-// 
+//
 // The monsterObject has 3 variables:
 // alias : This is a string with the name
 // color : This is an enum from MonsterColor (can be represented as string when called)
 // attributes : This is an array of attributeObjects
-// 
+//
 // An attributeObject has 2 variables:
 // attribute : a MonsterAttribute enum to know which attribute the value is connected to
 // count : An int that tells how many of the (attribute) we have
