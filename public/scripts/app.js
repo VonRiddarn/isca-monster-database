@@ -19,7 +19,7 @@
 // An attributeObject has 2 variables:
 // attribute : a MonsterAttribute enum to know which attribute the value is connected to
 // count : An int that tells how many of the (attribute) we have
-const monsters = [
+let monsters = [
 	{
 		uid: 0,
 		alias: "James P. Sulivan",
