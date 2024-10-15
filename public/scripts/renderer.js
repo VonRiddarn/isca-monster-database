@@ -15,6 +15,15 @@ function renderMonsterCards(arrayToRender)
 	monsterCard.className = "monster-card";
 	main.appendChild(monsterCard);
 
+	
+	// buttons
+	const deleteButton = monsterCard.appendChild(document.createElement("button"));
+	deleteButton.addEventListener('click', (e) => {
+		e.preventDefault();
+		deleteCard(monsterCard, monster);
+
+	});
+
 	// create section containing monster alias
 	const monsterProfile = document.createElement("section");
 	monsterProfile.className = "monster-profile";
@@ -68,6 +77,16 @@ function renderMonsterCards(arrayToRender)
 	stats.appendChild(legs);
   }
 };
+
+function deleteCard(card, object)
+{
+	card.remove();
+	monsters = monsters.filter((m) => m.uid !== object.uid);
+	console.log("--- MONSTER REMOVED ---");
+	console.log(object);
+	console.log(monsters);
+	console.log("--- --- ---");
+}
 
 renderMonsterCards(monsters);
 
