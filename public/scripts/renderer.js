@@ -30,7 +30,7 @@ function renderMonsterCards(arrayToRender)
 	const editButton = deleteEditSpan.appendChild(document.createElement("button"));
 	editButton.addEventListener('click', (e) => {
 		e.preventDefault();
-		enterEditMode(monsterCard);
+		enterEditMode(monsterCard, monster);
 
 	});
 	editButton.innerHTML = "Edit";
@@ -64,24 +64,26 @@ function renderMonsterCards(arrayToRender)
 	// create section containing monster alias
 	const monsterProfile = document.createElement("section");
 	monsterProfile.className = "monster-profile";
-	monsterProfile.innerHTML = (monster.alias);
 	monsterCard.appendChild(monsterProfile);
 
 	const monsterImage = document.createElement("section");
 	monsterImage.className = "monster-image";
 	monsterImage.innerHTML = ("");
-	monsterCard.appendChild(monsterImage);
+	monsterProfile.appendChild(monsterImage);
+
+	const monsterAlias = monsterProfile.appendChild(document.createElement("h3"));
+	monsterAlias.innerHTML = monster.alias;
+
+	// create list item containing color
+	const color = document.createElement("p");
+	color.className = "monster-color";
+	color.innerHTML = (`color: ${monster.color}`);
+	monsterProfile.appendChild(color);
 
 	// create ul containing monster stats
 	const stats = document.createElement("ul");
 	stats.className = "monster-stats";
 	monsterProfile.appendChild(stats);
-
-	// create list item containing color
-	const color = document.createElement("li");
-	color.className = "monster-color";
-	color.innerHTML = (`color: ${monster.color}`);
-	stats.appendChild(color);
 
 	// create list item containing eyes
 	const eyes = document.createElement("li");
