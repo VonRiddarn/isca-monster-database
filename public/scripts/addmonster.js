@@ -53,7 +53,7 @@ monsterForm.addEventListener(`submit`, (e) => {
   let monster = {
     alias: monsterTextInput.value,
     color: monsterForm.querySelector("#monster-color").value,
-    attributes: {},
+    stats: {},
     monsterHostility: monsterForm.querySelector("#monster-hostility").value,
   };
 
@@ -64,7 +64,7 @@ monsterForm.addEventListener(`submit`, (e) => {
     const attributeName = input
       .getAttribute("id")
       .replace("add-monster-attributes", "");
-    monster.attributes[attributeName] = Number(input.value);
+    monster.stats[attributeName] = Number(input.value);
   });
   console.log(monsters);
   console.log(monster);

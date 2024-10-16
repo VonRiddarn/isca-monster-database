@@ -9,6 +9,7 @@ const MonsterColor = Object.freeze({
   Green: "Green",
   Blue: "Blue",
   Purple: "Purple",
+  Yellow: "Yellow",
 });
 
 // Attributes enum
