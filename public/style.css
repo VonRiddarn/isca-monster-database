@@ -36,7 +36,7 @@ header {
 aside {
   grid-area: aside;
   background-color: var(--isca-background-light);
-  overflow-y: scroll;
+  overflow-y: auto;
 
   display: grid;
   grid-template-rows: 1fr 1fr;
