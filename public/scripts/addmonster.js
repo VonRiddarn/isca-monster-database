@@ -58,12 +58,13 @@ monsterForm.addEventListener(`submit`, (e) => {
   };
 
   const attributeFields = monsterForm.querySelectorAll(
-    "[id=add-monster-attributes]"
+    "[id^='add-monster-attributes-']"
   );
   attributeFields.forEach((input) => {
     const attributeName = input
       .getAttribute("id")
-      .replace("add-monster-attributes", "");
+      .replace("add-monster-attributes-", "")
+      .replace("-count", "");
     monster.stats[attributeName] = Number(input.value);
   });
   console.log(monsters);
