@@ -36,15 +36,16 @@ header {
 aside {
   grid-area: aside;
   background-color: var(--isca-background-light);
+  overflow-y: scroll;
 
   display: grid;
   grid-template-rows: 1fr 1fr;
   position: sticky;
 
   display: inline-block;
-  height: calc(100vh - var(--header-size));
+  height: calc(100vh - var(--header-size) - 42px);
 
-  top: calc(42px);
+  top: 42px;
   display: none;
 }
 

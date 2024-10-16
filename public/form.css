@@ -31,6 +31,12 @@ form {
     cursor: pointer;
   }
 }
+
+form:first-child {
+	margin-top: 1rem;
+	margin-bottom: 4rem;
+}
+
 span {
   display: grid;
   grid-template-rows: 2rem auto;
