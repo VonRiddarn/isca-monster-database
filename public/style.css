@@ -52,9 +52,60 @@ aside {
 main {
   grid-area: main;
   background-color: var(--isca-background-light);
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  
+  @media only screen and (max-width:1500px) {
+	grid-template-columns: 1fr 1fr 1fr;
+  }
 }
+nav {
+  position: sticky;
+  grid-area: aside;
+  grid-row: 1;
+  /* height: calc(100vh - var(--header-size)); */
+  top: 0;
+  margin-top: 6.5rem;
+
+  z-index: 1;
+  height: 5vh;
+  columns: 2;
+
+  /* grid-template-rows: 1fr;
+  grid-template-columns: 1fr; */
+}
+
+@media only screen and (max-width:700px) {
+
+body {
+	grid-template-areas:
+	"header header"
+	"main main"
+	"main main"
+	"footer footer";
+}
+
+nav {
+	grid-area: main;
+	position: fixed;
+	top: -100px;
+	left: 0;
+}
+aside {
+	grid-area: main;
+	position: fixed;
+	padding-top: 64px;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+main {
+	grid-template-columns: 1fr 1fr;
+}
+}
+
 
 .monster-card {
   background-image: linear-gradient(
@@ -105,19 +156,4 @@ footer {
   grid-area: footer;
   background-color: var(--isca-background-dark);
   color: white;
-}
-nav {
-  position: sticky;
-  grid-area: aside;
-  grid-row: 1;
-  /* height: calc(100vh - var(--header-size)); */
-  top: 0;
-  margin-top: 6.5rem;
-
-  z-index: 1;
-  height: 5vh;
-  columns: 2;
-
-  /* grid-template-rows: 1fr;
-  grid-template-columns: 1fr; */
 }
