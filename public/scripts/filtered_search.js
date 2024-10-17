@@ -17,6 +17,10 @@ const filteredSearchButton = filteredSearchForm.appendChild(document.createEleme
 filteredSearchButton.setAttribute("id", "filtered-search-monster-form-submit");
 filteredSearchButton.innerHTML = "Search";
 
+// Create search result paragraph
+const resultParagraph = filteredSearchForm.appendChild(document.createElement("p"));
+resultParagraph.textContent = "";
+
 
 /**
  * Generates and applies MonsterColor HTML elements the passed form.
@@ -136,7 +140,9 @@ function getFilteredMonsterArray(monstersArr)
 document.getElementById("filtered-search-monster-form-submit").addEventListener('click', (e) =>
 {
 	e.preventDefault();
-	renderMonsterCards(getFilteredMonsterArray(monsters));
+	const filteredMonsterArray = getFilteredMonsterArray(monsters);
+	renderMonsterCards(filteredMonsterArray);
+	resultParagraph.textContent = `Showing ${filteredMonsterArray.length} monsters that match your filters. (out of ${monsters.length})`;
 	console.log(getFilteredMonsterArray(monsters));
 });
 
