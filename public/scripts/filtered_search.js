@@ -10,7 +10,7 @@ filteredSearchForm.innerHTML = "";
 
 // Add form elements to span through functions
 applyMonsterColorToForm(filteredSearchForm);
-addNumericInputFieldsFromEnum(filteredSearchForm, MonsterAttribute, "filtered-search-monster-attribute", true);
+utilities.addNumericInputFieldsFromEnum(filteredSearchForm, MonsterAttribute, "filtered-search-monster-attribute", true);
 
 // Create search <button> (filtered seach form submitter)
 const filteredSearchButton = filteredSearchForm.appendChild(document.createElement("button"));
@@ -42,7 +42,7 @@ function applyMonsterColorToForm(form)
 	label.innerHTML = "Color";
 
 	// <select>
-	addDropDownFromEnum(span, MonsterColor, "filtered-search-monster-color-dropdown");
+	utilities.addDropDownFromEnum(span, MonsterColor, "filtered-search-monster-color-dropdown");
 }
 
 
