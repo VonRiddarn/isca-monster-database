@@ -55,7 +55,7 @@ const utilities = Object.freeze
 
 			// <select>
 			if(isFilter)
-				addDropDownFromEnum(labelSpan, NumericFilterMethod, `${elementId}-numeric-filter-dropdown`);
+				this.addDropDownFromEnum(labelSpan, NumericFilterMethod, `${elementId}-numeric-filter-dropdown`);
 
 			// <input type="number" />
 			const count = span.appendChild(document.createElement("input"));
@@ -84,7 +84,7 @@ const utilities = Object.freeze
 	},
 
 	getObjectKeynameFromIndex(object, index)
-	{ 
+	{ git 
 		return Object.keys(object)[index] || null;
 	},
 });
