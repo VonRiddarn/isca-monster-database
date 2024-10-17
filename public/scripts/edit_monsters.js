@@ -63,12 +63,12 @@ function enterEditMode(articleElement, monsterObject)
 	const colorElement = articleElement.querySelectorAll("section p")[0];
 	const attributeElements = articleElement.querySelector("ul").children;
 
-	utilities.generateInputAndReplace(aliasElement, "text", "Name:", null);
-	utilities.generateInputAndReplace(colorElement, "dropdown", "Color: ", MonsterColor);
+	generateInputAndReplace(aliasElement, "text", "Name:", null);
+	generateInputAndReplace(colorElement, "dropdown", "Color: ", MonsterColor);
 
 	for (let i = 0; i < attributeElements.length; i++) 
 	{
-		utilities.generateInputAndReplace(attributeElements[i], "number", getObjectKeynameFromIndex(monsterObject.stats, i), null);
+		generateInputAndReplace(attributeElements[i], "number", utilities.getObjectKeynameFromIndex(monsterObject.stats, i), null);
 	}
 }
 

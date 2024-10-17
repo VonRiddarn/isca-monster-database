@@ -84,7 +84,7 @@ const utilities = Object.freeze
 	},
 
 	getObjectKeynameFromIndex(object, index)
-	{ git 
+	{
 		return Object.keys(object)[index] || null;
 	},
 });
