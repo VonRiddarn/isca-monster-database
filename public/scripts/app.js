@@ -214,5 +214,5 @@ let monsters = [
 	}
 ];
 
-console.log(monsters);
-console.log(getFilteredMonsterArray(monsters));
+// Start program:
+renderMonsterCards(monsters);

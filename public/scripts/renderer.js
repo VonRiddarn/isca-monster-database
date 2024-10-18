@@ -129,8 +129,6 @@ function renderMonsterCards(arrayToRender)
   }
 };
 
-renderMonsterCards(monsters);
-
 /*
 		<article class="monster-card">
 			<section class="monster-profile">
