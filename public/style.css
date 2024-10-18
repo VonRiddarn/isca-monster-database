@@ -188,19 +188,3 @@ footer {
 	  background-color: white;
 	  color: var(--isca-background-dark);
   }
-  
-nav {
-  position: sticky;
-  grid-area: aside;
-  grid-row: 1;
-  /* height: calc(100vh - var(--header-size)); */
-  top: 0;
-  margin-top: 6.5rem;
-
-  z-index: 1;
-  height: 5vh;
-  columns: 2;
-
-  /* grid-template-rows: 1fr;
-  grid-template-columns: 1fr; */
-}
