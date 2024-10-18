@@ -10,12 +10,16 @@ filteredSearchForm.innerHTML = "";
 
 // Add form elements to span through functions
 applyMonsterColorToForm(filteredSearchForm);
-addNumericInputFieldsFromEnum(filteredSearchForm, MonsterAttribute, "filtered-search-monster-attribute", true);
+utilities.addNumericInputFieldsFromEnum(filteredSearchForm, MonsterAttribute, "filtered-search-monster-attribute", true);
 
 // Create search <button> (filtered seach form submitter)
 const filteredSearchButton = filteredSearchForm.appendChild(document.createElement("button"));
 filteredSearchButton.setAttribute("id", "filtered-search-monster-form-submit");
 filteredSearchButton.innerHTML = "Search";
+
+// Create search result paragraph
+const resultParagraph = filteredSearchForm.appendChild(document.createElement("p"));
+resultParagraph.textContent = "";
 
 
 /**
@@ -42,7 +46,7 @@ function applyMonsterColorToForm(form)
 	label.innerHTML = "Color";
 
 	// <select>
-	addDropDownFromEnum(span, MonsterColor, "filtered-search-monster-color-dropdown");
+	utilities.addDropDownFromEnum(span, MonsterColor, "filtered-search-monster-color-dropdown");
 }
 
 
@@ -136,7 +140,9 @@ function getFilteredMonsterArray(monstersArr)
 document.getElementById("filtered-search-monster-form-submit").addEventListener('click', (e) =>
 {
 	e.preventDefault();
-	renderMonsterCards(getFilteredMonsterArray(monsters));
+	const filteredMonsterArray = getFilteredMonsterArray(monsters);
+	renderMonsterCards(filteredMonsterArray);
+	resultParagraph.textContent = `Showing ${filteredMonsterArray.length} monsters that match your filters. (out of ${monsters.length})`;
 	console.log(getFilteredMonsterArray(monsters));
 });
 

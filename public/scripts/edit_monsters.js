@@ -21,7 +21,7 @@ function generateInputAndReplace(elementToReplace, inputType, labelText, dropDow
 			el.setAttribute("type", "text");
 		break;
 		case "dropdown":
-			el = generateRawDropDownFromEnum(dropDownEnum);
+			el = utilities.generateRawDropDownFromEnum(dropDownEnum);
 			el.value = value; // Could technically be bad input if something is changed at runtime :shrug:
 		break;
 		case "number":
@@ -68,7 +68,7 @@ function enterEditMode(articleElement, monsterObject)
 
 	for (let i = 0; i < attributeElements.length; i++) 
 	{
-		generateInputAndReplace(attributeElements[i], "number", getObjectKeynameFromIndex(monsterObject.stats, i), null);
+		generateInputAndReplace(attributeElements[i], "number", utilities.getObjectKeynameFromIndex(monsterObject.stats, i), null);
 	}
 }
 
@@ -233,5 +233,4 @@ function generateCardContent(monsterCard, monster)
 	legs.className = "monster-legs";
 	legs.innerHTML = (`legs: ${monster.stats.Legs}`);
 	stats.appendChild(legs);
-
 }

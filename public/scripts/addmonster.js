@@ -26,7 +26,7 @@ const monsterColorLabel = colorSpan.appendChild(
 );
 monsterColorLabel.setAttribute("for", "monster-color");
 monsterColorLabel.innerHTML = "Color";
-addDropDownFromEnum(colorSpan, MonsterColor, "monster-color");
+utilities.addDropDownFromEnum(colorSpan, MonsterColor, "monster-color");
 
 //added last might be removed
 const monsterHostility = monsterForm.appendChild(
@@ -37,11 +37,11 @@ const monsterHostLabel = monsterHostility.appendChild(
 );
 monsterHostLabel.setAttribute("for", "monster-color");
 monsterHostLabel.innerHTML = "Monster attitudes ";
-addDropDownFromEnum(monsterHostility, MonsterHostility, "monster-hostility");
+utilities.addDropDownFromEnum(monsterHostility, MonsterHostility, "monster-hostility");
 //...............................................................................
 //kunna ta värdet från attributes. lägga till en input text för
 
-addNumericInputFieldsFromEnum(
+utilities.addNumericInputFieldsFromEnum(
   monsterForm,
   MonsterAttribute,
   "add-monster-attributes",
