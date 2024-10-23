@@ -70,5 +70,7 @@ monsterForm.addEventListener(`submit`, (e) => {
   console.log(monsters);
   console.log(monster);
   monsters.push(monster);
+
   ResetColorCount();
+  renderMonsterCards(monsters);
 });
