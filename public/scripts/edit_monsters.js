@@ -112,6 +112,7 @@ function exitEditMode(articleElement, saveChanges, monsterObject)
   	}
 
 	replaceCard(articleElement, mockMonster);
+	ResetColorCount();
 	return mockMonster;
 }
 
@@ -129,6 +130,7 @@ function deleteCard(card, object)
 	console.log(object);
 	console.log(monsters);
 	console.log("--- --- ---");
+	ResetColorCount();
 }
 
 function generateCardContent(monsterCard, monster)
