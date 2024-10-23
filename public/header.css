@@ -2,6 +2,9 @@ header
 {
 	grid-area: header;
     background-image: linear-gradient(to bottom right, rgb(54, 71, 91), rgb(29, 40, 53));
-
 }
 
+header span {
+	display: flex;
+	justify-content: center;
+}
