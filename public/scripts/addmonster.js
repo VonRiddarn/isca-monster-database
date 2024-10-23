@@ -1,5 +1,7 @@
 const addMonsterRoot = document.querySelector(".add-monster");
 
+let nectMonsterID = monsters.length + 1;
+
 //inits <form>
 const monsterForm = document
   .querySelector(".add-monster")
@@ -51,11 +53,14 @@ utilities.addNumericInputFieldsFromEnum(
 monsterForm.addEventListener(`submit`, (e) => {
   e.preventDefault();
   let monster = {
+	uid: nectMonsterID,
     alias: monsterTextInput.value,
     color: monsterForm.querySelector("#monster-color").value,
     stats: {},
     monsterHostility: monsterForm.querySelector("#monster-hostility").value,
   };
+
+  nectMonsterID++;
 
   const attributeFields = monsterForm.querySelectorAll(
     "[id^='add-monster-attributes-']"
